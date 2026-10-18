@@ -10,10 +10,10 @@ const NAV_ITEMS = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[#050505]/80 backdrop-blur-md">
-      <Container className="flex flex-col gap-3 py-4 sm:h-14 sm:flex-row sm:items-center sm:justify-between sm:py-0">
+      <Container className="flex flex-col items-start gap-1 py-3 sm:h-14 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:py-0">
         <a
           href="#top"
-          className="font-mono text-xs tracking-[0.22em] text-foreground"
+          className="inline-flex items-center py-2 font-mono text-xs tracking-[0.22em] text-foreground"
         >
           ZB
           <span className="sr-only">, Zach Benhamou</span>
@@ -23,7 +23,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[13px] text-muted transition-colors hover:text-foreground"
+              className="inline-flex items-center py-2 text-[13px] text-muted transition-colors hover:text-foreground"
             >
               {item.label}
             </a>

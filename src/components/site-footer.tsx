@@ -1,8 +1,13 @@
+import { cacheLife } from "next/cache";
+
 import { Container } from "@/components/container";
 import { ExternalLink } from "@/components/external-link";
 import { SITE_NAME, SOURCE_URL } from "@/data/site";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  "use cache";
+  cacheLife("weeks");
+
   const year = new Date().getFullYear();
 
   return (
@@ -13,7 +18,7 @@ export function SiteFooter() {
         </p>
         <ExternalLink
           href={SOURCE_URL}
-          className="underline decoration-white/25 underline-offset-4 hover:text-foreground hover:decoration-white"
+          className="inline-flex items-center py-2 underline decoration-white/25 underline-offset-4 hover:text-foreground hover:decoration-white"
         >
           View source
         </ExternalLink>

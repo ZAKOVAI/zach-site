@@ -26,12 +26,12 @@ export function Hero() {
           <ExternalLink
             href={GITHUB_URL}
             rel="me noopener noreferrer"
-            className="inline-flex items-center gap-2 text-foreground"
+            className="inline-flex items-center gap-2 py-2 text-foreground"
           >
             GitHub
             <span aria-hidden="true">↗</span>
           </ExternalLink>
-          <a href="#contact" className="inline-flex items-center gap-2">
+          <a href="#contact" className="inline-flex items-center gap-2 py-2">
             Contact
             <span aria-hidden="true">↓</span>
           </a>
