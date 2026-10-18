@@ -9,13 +9,13 @@ export function Experience() {
         {experience.map((entry) => (
           <li
             key={`${entry.organization}-${entry.role}`}
-            className="grid gap-6 border-b border-white/10 py-8 md:grid-cols-12"
+            className="grid gap-6 border-b border-white/10 py-8 md:grid-cols-12 md:py-10"
           >
             <p className="font-mono text-[11px] tracking-[0.08em] text-muted md:col-span-3">
               {entry.start} to {entry.end}
             </p>
             <div className="md:col-span-9">
-              <h3 className="text-xl font-medium tracking-[-0.02em]">
+              <h3 className="text-2xl font-medium tracking-[-0.03em]">
                 {entry.role},{" "}
                 {entry.organizationUrl ? (
                   <ExternalLink
@@ -34,9 +34,23 @@ export function Experience() {
                 <span className="sr-only">, </span>
                 {entry.location}
               </p>
-              <p className="mt-5 max-w-xl text-[15px] leading-7 text-foreground/90">
+              <p className="mt-5 max-w-2xl text-[15px] leading-7 text-foreground/90">
                 {entry.summary}
               </p>
+              <ul className="mt-6 max-w-2xl space-y-3">
+                {entry.highlights.map((highlight) => (
+                  <li
+                    key={highlight}
+                    className="flex gap-3 text-[15px] leading-6 text-foreground/90"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 size-1 shrink-0 rounded-full bg-foreground/55"
+                    />
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
             </div>
           </li>
         ))}

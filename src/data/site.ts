@@ -5,6 +5,11 @@ export const SITE_NAME = "Zach Benhamou";
 export const SITE_DESCRIPTION =
   "Founder of Zakov AI. I build AI agents and automation tools, and open-source the best of them.";
 
+export const SITE_TAGLINE =
+  "Agents, voice, and automation, shipped from Miami.";
+
+export const STATUS_LABEL = "Building in Miami";
+
 export const LOCATION = "Miami, FL";
 
 export const GITHUB_LOGIN = "ZAKOVAI";

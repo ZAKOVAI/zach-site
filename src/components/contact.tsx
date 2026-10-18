@@ -8,12 +8,10 @@ import {
   LINKEDIN_URL,
   ZAKOV_AI_URL,
 } from "@/data/site";
-import { displayUrl } from "@/lib/format";
 
 interface ContactLink {
   label: string;
   href: string;
-  value: string;
   external: boolean;
   rel: string;
 }
@@ -23,7 +21,6 @@ export function Contact() {
     {
       label: "GitHub",
       href: GITHUB_URL,
-      value: displayUrl(GITHUB_URL),
       external: true,
       rel: "me noopener noreferrer",
     },
@@ -33,7 +30,6 @@ export function Contact() {
     links.push({
       label: "LinkedIn",
       href: LINKEDIN_URL,
-      value: displayUrl(LINKEDIN_URL),
       external: true,
       rel: "me noopener noreferrer",
     });
@@ -43,7 +39,6 @@ export function Contact() {
     links.push({
       label: "Zakov AI on LinkedIn",
       href: ZAKOV_AI_URL,
-      value: displayUrl(ZAKOV_AI_URL),
       external: true,
       rel: "noopener noreferrer",
     });
@@ -53,7 +48,6 @@ export function Contact() {
     links.push({
       label: "Email",
       href: `mailto:${EMAIL.trim()}`,
-      value: EMAIL.trim(),
       external: false,
       rel: "noopener noreferrer",
     });
@@ -63,37 +57,39 @@ export function Contact() {
     <Section
       id="contact"
       index="04"
-      title="Contact"
+      title="Let's build something."
       lede="For product work, open source, and roles."
     >
-      <ul className="border-t border-white/10">
-        {links.map((link) => (
-          <li key={link.label} className="border-b border-white/10">
-            {link.external ? (
-              <ExternalLink
-                href={link.href}
-                rel={link.rel}
-                className="flex items-baseline justify-between gap-6 py-5 transition-colors hover:text-white"
-              >
-                <span className="text-lg">{link.label}</span>
-                <span className="truncate font-mono text-[11px] tracking-[0.04em] text-muted">
-                  {link.value}
-                </span>
-              </ExternalLink>
-            ) : (
-              <a
-                href={link.href}
-                className="flex items-baseline justify-between gap-6 py-5 transition-colors hover:text-white"
-              >
-                <span className="text-lg">{link.label}</span>
-                <span className="truncate font-mono text-[11px] tracking-[0.04em] text-muted">
-                  {link.value}
-                </span>
-              </a>
-            )}
-          </li>
-        ))}
-      </ul>
+      <div className="border border-white/10 bg-white/[0.03] px-6 py-8 md:px-10 md:py-12">
+        <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {links.map((link) => (
+            <li key={link.label}>
+              {link.external ? (
+                <ExternalLink
+                  href={link.href}
+                  rel={link.rel}
+                  className="group inline-flex items-center gap-3 border border-white/15 px-4 py-3 text-sm transition-colors hover:border-white/40 hover:bg-white/[0.04]"
+                >
+                  {link.label}
+                  <span
+                    aria-hidden="true"
+                    className="text-muted transition-transform duration-300 group-hover:translate-x-0.5 motion-reduce:transition-none"
+                  >
+                    ↗
+                  </span>
+                </ExternalLink>
+              ) : (
+                <a
+                  href={link.href}
+                  className="inline-flex items-center gap-3 border border-white/15 px-4 py-3 text-sm transition-colors hover:border-white/40 hover:bg-white/[0.04]"
+                >
+                  {link.label}
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </Section>
   );
 }

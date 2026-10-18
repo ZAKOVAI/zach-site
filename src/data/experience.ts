@@ -9,6 +9,7 @@ export interface ExperienceEntry {
   start: string;
   end: string;
   summary: string;
+  highlights: readonly string[];
 }
 
 export const experience: readonly ExperienceEntry[] = [
@@ -22,5 +23,11 @@ export const experience: readonly ExperienceEntry[] = [
     end: "Present",
     summary:
       "Building AI agents, voice and automation tools for businesses. Shipping open-source developer tools.",
+    highlights: [
+      "AI agents for local businesses.",
+      "Voice and missed-call automation.",
+      "Open-source developer tools.",
+      "Cursor and agent workflows.",
+    ],
   },
 ];

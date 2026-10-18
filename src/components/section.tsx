@@ -13,26 +13,28 @@ export function Section({ id, index, title, lede, children }: SectionProps) {
     <section
       id={id}
       aria-labelledby={`${id}-title`}
-      className="scroll-mt-24 border-t border-white/10 py-20 md:py-28"
+      className="scroll-mt-28 border-t border-white/10 py-14 md:py-16"
     >
-      <div className="reveal grid gap-8 md:grid-cols-12 md:gap-12">
-        <div className="md:col-span-3">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-muted">
-            {index}
-          </p>
-          <h2
-            id={`${id}-title`}
-            className="mt-3 text-2xl font-medium tracking-[-0.03em]"
-          >
-            {title}
-          </h2>
-        </div>
-        <div className="md:col-span-9">
+      <div className="reveal">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="font-mono text-[11px] tracking-[0.22em] text-muted">
+              {index}
+            </p>
+            <h2
+              id={`${id}-title`}
+              className="mt-3 text-3xl font-medium tracking-[-0.03em] md:text-4xl"
+            >
+              {title}
+            </h2>
+          </div>
           {lede ? (
-            <p className="max-w-xl text-base leading-7 text-muted">{lede}</p>
+            <p className="max-w-md text-sm leading-6 text-muted md:text-right">
+              {lede}
+            </p>
           ) : null}
-          <div className={lede ? "mt-10" : undefined}>{children}</div>
         </div>
+        <div className="mt-8 md:mt-10">{children}</div>
       </div>
     </section>
   );

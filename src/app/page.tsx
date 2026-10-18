@@ -6,15 +6,18 @@ import { OpenSource } from "@/components/open-source";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Skills } from "@/components/skills";
+import { getShowcaseProjects } from "@/lib/github";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const projects = await getShowcaseProjects();
+
   return (
     <>
       <SiteHeader />
       <main id="content">
-        <Hero />
+        <Hero projectCount={projects.length} />
         <Container>
-          <OpenSource />
+          <OpenSource projects={projects} />
           <Experience />
           <Skills />
           <Contact />

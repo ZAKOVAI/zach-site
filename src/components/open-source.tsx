@@ -1,10 +1,12 @@
 import { ProjectCard } from "@/components/project-card";
 import { Section } from "@/components/section";
-import { getShowcaseProjects } from "@/lib/github";
+import type { ShowcaseProject } from "@/types/showcase";
 
-export async function OpenSource() {
-  const projects = await getShowcaseProjects();
+interface OpenSourceProps {
+  projects: readonly ShowcaseProject[];
+}
 
+export function OpenSource({ projects }: OpenSourceProps) {
   return (
     <Section
       id="work"
@@ -15,16 +17,13 @@ export async function OpenSource() {
       {projects.length === 0 ? (
         <p className="text-muted">No public showcase repositories yet.</p>
       ) : (
-        <ul
-          className={
-            projects.length === 1
-              ? "grid gap-4"
-              : "grid gap-4 md:grid-cols-2"
-          }
-        >
-          {projects.map((project) => (
-            <li key={project.name} className="min-w-0">
-              <ProjectCard project={project} />
+        <ul className="grid gap-4 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <li
+              key={project.name}
+              className={index === 0 ? "min-w-0 md:col-span-2" : "min-w-0"}
+            >
+              <ProjectCard project={project} featured={index === 0} />
             </li>
           ))}
         </ul>
