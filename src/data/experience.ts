@@ -1,16 +1,12 @@
+import { ZAKOV_AI_URL } from "@/data/site";
+
 export interface ExperienceEntry {
   role: string;
   organization: string;
+  organizationUrl: string | null;
   legalEntity: string;
   location: string;
-  /**
-   * TODO: refine the start date.
-   * Keep the visible value as "TODO" until the real date is ready.
-   */
   start: string;
-  /**
-   * TODO: refine if this role should have an end date.
-   */
   end: string;
   summary: string;
 }
@@ -19,9 +15,10 @@ export const experience: readonly ExperienceEntry[] = [
   {
     role: "Founder",
     organization: "Zakov AI",
+    organizationUrl: ZAKOV_AI_URL,
     legalEntity: "ZAKOVAI LLC",
     location: "Miami, FL",
-    start: "TODO",
+    start: "Jan 2026",
     end: "Present",
     summary:
       "Building AI agents, voice and automation tools for businesses. Shipping open-source developer tools.",

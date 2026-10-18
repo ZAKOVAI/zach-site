@@ -1,6 +1,13 @@
 import { Container } from "@/components/container";
 import { ExternalLink } from "@/components/external-link";
-import { GITHUB_URL, LOCATION, SITE_DESCRIPTION, SITE_NAME } from "@/data/site";
+import {
+  GITHUB_URL,
+  LINKEDIN_URL,
+  LOCATION,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  ZAKOV_AI_URL,
+} from "@/data/site";
 
 export function Hero() {
   return (
@@ -20,7 +27,7 @@ export function Hero() {
           {SITE_NAME}
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-8 text-muted md:text-xl md:leading-9">
-          {SITE_DESCRIPTION}
+          <HeroDescription />
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 text-sm">
           <ExternalLink
@@ -31,6 +38,14 @@ export function Hero() {
             GitHub
             <span aria-hidden="true">↗</span>
           </ExternalLink>
+          <ExternalLink
+            href={LINKEDIN_URL}
+            rel="me noopener noreferrer"
+            className="inline-flex items-center gap-2 py-2 text-foreground"
+          >
+            LinkedIn
+            <span aria-hidden="true">↗</span>
+          </ExternalLink>
           <a href="#contact" className="inline-flex items-center gap-2 py-2">
             Contact
             <span aria-hidden="true">↓</span>
@@ -38,5 +53,25 @@ export function Hero() {
         </div>
       </Container>
     </section>
+  );
+}
+
+function HeroDescription() {
+  const company = "Zakov AI";
+  const index = SITE_DESCRIPTION.indexOf(company);
+
+  if (index === -1) return SITE_DESCRIPTION;
+
+  return (
+    <>
+      {SITE_DESCRIPTION.slice(0, index)}
+      <ExternalLink
+        href={ZAKOV_AI_URL}
+        className="text-foreground underline decoration-white/30 underline-offset-4 hover:decoration-white"
+      >
+        {company}
+      </ExternalLink>
+      {SITE_DESCRIPTION.slice(index + company.length)}
+    </>
   );
 }

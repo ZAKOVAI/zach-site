@@ -31,8 +31,8 @@ Custom blurbs, language or license labels, and extra links live in `src/data/ove
 
 ## Edit the profile
 
-- `src/data/site.ts`: site URL, GitHub, and the LinkedIn and email placeholders. LinkedIn and email stay hidden until those constants are set.
-- `src/data/experience.ts`: roles, organizations, and dates. Dates are marked `TODO` until you refine them.
+- `src/data/site.ts`: site URL, GitHub, LinkedIn, and the company page. Email stays hidden until `EMAIL` is set.
+- `src/data/experience.ts`: roles, organizations, and dates.
 - `src/data/skills.ts`: grouped stack tags.
 
 ## Deploy

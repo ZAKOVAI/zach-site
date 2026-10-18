@@ -1,3 +1,4 @@
+import { ExternalLink } from "@/components/external-link";
 import { Section } from "@/components/section";
 import { experience } from "@/data/experience";
 
@@ -10,19 +11,22 @@ export function Experience() {
             key={`${entry.organization}-${entry.role}`}
             className="grid gap-6 border-b border-white/10 py-8 md:grid-cols-12"
           >
-            <div className="font-mono text-[11px] tracking-[0.16em] text-muted uppercase md:col-span-3">
-              <p>
-                <span className="sr-only">Start </span>
-                {entry.start}
-              </p>
-              <p className="mt-2">
-                <span className="sr-only">End </span>
-                {entry.end}
-              </p>
-            </div>
+            <p className="font-mono text-[11px] tracking-[0.08em] text-muted md:col-span-3">
+              {entry.start} to {entry.end}
+            </p>
             <div className="md:col-span-9">
               <h3 className="text-xl font-medium tracking-[-0.02em]">
-                {entry.role}, {entry.organization}
+                {entry.role},{" "}
+                {entry.organizationUrl ? (
+                  <ExternalLink
+                    href={entry.organizationUrl}
+                    className="underline decoration-white/25 underline-offset-4 hover:decoration-white"
+                  >
+                    {entry.organization}
+                  </ExternalLink>
+                ) : (
+                  entry.organization
+                )}
               </h3>
               <p className="mt-2 text-sm text-muted">
                 {entry.legalEntity}

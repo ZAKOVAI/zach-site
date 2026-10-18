@@ -6,6 +6,7 @@ import {
   isConfiguredEmail,
   isConfiguredUrl,
   LINKEDIN_URL,
+  ZAKOV_AI_URL,
 } from "@/data/site";
 import { displayUrl } from "@/lib/format";
 
@@ -14,6 +15,7 @@ interface ContactLink {
   href: string;
   value: string;
   external: boolean;
+  rel: string;
 }
 
 export function Contact() {
@@ -23,6 +25,7 @@ export function Contact() {
       href: GITHUB_URL,
       value: displayUrl(GITHUB_URL),
       external: true,
+      rel: "me noopener noreferrer",
     },
   ];
 
@@ -32,6 +35,17 @@ export function Contact() {
       href: LINKEDIN_URL,
       value: displayUrl(LINKEDIN_URL),
       external: true,
+      rel: "me noopener noreferrer",
+    });
+  }
+
+  if (isConfiguredUrl(ZAKOV_AI_URL)) {
+    links.push({
+      label: "Zakov AI on LinkedIn",
+      href: ZAKOV_AI_URL,
+      value: displayUrl(ZAKOV_AI_URL),
+      external: true,
+      rel: "noopener noreferrer",
     });
   }
 
@@ -41,6 +55,7 @@ export function Contact() {
       href: `mailto:${EMAIL.trim()}`,
       value: EMAIL.trim(),
       external: false,
+      rel: "noopener noreferrer",
     });
   }
 
@@ -57,11 +72,7 @@ export function Contact() {
             {link.external ? (
               <ExternalLink
                 href={link.href}
-                rel={
-                  link.label === "GitHub"
-                    ? "me noopener noreferrer"
-                    : "noopener noreferrer"
-                }
+                rel={link.rel}
                 className="flex items-baseline justify-between gap-6 py-5 transition-colors hover:text-white"
               >
                 <span className="text-lg">{link.label}</span>

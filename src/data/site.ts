@@ -13,11 +13,9 @@ export const GITHUB_URL = "https://github.com/ZAKOVAI";
 
 export const SOURCE_URL = "https://github.com/ZAKOVAI/zach-site";
 
-/**
- * TODO: set the public LinkedIn profile URL.
- * The contact section hides LinkedIn until this is a non-empty URL.
- */
-export const LINKEDIN_URL = "";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/zachary-benhamou";
+
+export const ZAKOV_AI_URL = "https://www.linkedin.com/company/zakov-ai/";
 
 /**
  * TODO: set the public contact email when the zakov.ai alias is ready.

@@ -7,6 +7,7 @@ import {
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
+  ZAKOV_AI_URL,
 } from "@/data/site";
 import { skillGroups } from "@/data/skills";
 
@@ -31,6 +32,7 @@ export function personSchema() {
       "@type": "Organization",
       name: "Zakov AI",
       legalName: "ZAKOVAI LLC",
+      url: ZAKOV_AI_URL,
     },
     knowsAbout: skillGroups.flatMap((group) => group.items),
     sameAs,
